@@ -10,7 +10,7 @@ class Day2 : Day(2) {
                 Pair(split[0], Integer.parseInt(split[1]))
             }
             .forEach { direction ->
-                when(direction.first[0]) {
+                when (direction.first[0]) {
                     'u' -> depth -= direction.second
                     'd' -> depth += direction.second
                     'f' -> horizonal += direction.second
@@ -29,7 +29,7 @@ class Day2 : Day(2) {
                 Pair(split[0], Integer.parseInt(split[1]))
             }
             .forEach { direction ->
-                when(direction.first[0]) {
+                when (direction.first[0]) {
                     'u' -> aim -= direction.second
                     'd' -> aim += direction.second
                     'f' -> {

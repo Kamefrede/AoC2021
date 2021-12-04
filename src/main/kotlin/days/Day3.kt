@@ -14,7 +14,7 @@ class Day3 : Day(3) {
     }
 
     private fun getBitCount(inputList: List<String>): Array<IntArray> {
-        val bitCount = Array(2) {IntArray(inputList[0].length)}
+        val bitCount = Array(2) { IntArray(inputList[0].length) }
         inputList.forEach { bits ->
             bits.forEachIndexed { index, bit ->
                 if (bit == '1') bitCount[1][index] = bitCount[1][index] + 1
@@ -25,17 +25,17 @@ class Day3 : Day(3) {
     }
 
     private fun mostCommon(list: List<String>, idxToCheck: Int, mostCommon: Boolean): String {
-        if(list.size == 1) return list[0]
+        if (list.size == 1) return list[0]
         val bitCount = getBitCount(list)
         var toCheckAgainst = ""
 
         bitCount[1].zip(bitCount[0]) { oneCount, zeroCount ->
-            if(oneCount == zeroCount) {
+            if (oneCount == zeroCount) {
                 toCheckAgainst += if (mostCommon) '1' else '0'
                 return@zip
             }
 
-            toCheckAgainst += if(oneCount > zeroCount) {
+            toCheckAgainst += if (oneCount > zeroCount) {
                 if (mostCommon)
                     '1'
                 else
